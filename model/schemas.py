@@ -13,11 +13,11 @@ class Host(BaseModel):
     country: Country
 
 class Category(Enum):
-    ROOM = "Room",
-    HOUSE = "House",
-    FLAT = "Flat",
-    APARTMENT = "Apartment",
-    HOTEL = "Hotel",
+    ROOM = "Room"
+    HOUSE = "House"
+    FLAT = "Flat"
+    APARTMENT = "Apartment"
+    HOTEL = "Hotel"
     MOTEL = "Motel"
 
 class Accommodation(BaseModel):
