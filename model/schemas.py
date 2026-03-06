@@ -12,9 +12,6 @@ class Host(BaseModel):
     surname: str
     country: Country
 
-class Accommodation(BaseModel):
-    id: int
-
 class Category(Enum):
     ROOM = "Room",
     HOUSE = "House",
@@ -22,3 +19,11 @@ class Category(Enum):
     APARTMENT = "Apartment",
     HOTEL = "Hotel",
     MOTEL = "Motel"
+
+class Accommodation(BaseModel):
+    id: int
+    name: str
+    category: Category
+    host: Host
+    numRooms: int
+    is_available: bool
