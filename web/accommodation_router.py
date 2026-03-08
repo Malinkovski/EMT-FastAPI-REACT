@@ -8,9 +8,11 @@ from service import accommodation_service
 
 router = APIRouter(prefix="/accommodation", tags=["accommodation"])
 
+
 @router.get("", response_model=list[Accommodation])
 async def list_accommodations():
     return accommodation_service.list_all()
+
 
 @router.get("/{accommodation_id}", response_model=Accommodation)
 async def find(accommodation_id: int):
@@ -19,9 +21,11 @@ async def find(accommodation_id: int):
         return accommodation
     return JSONResponse(status_code=404, content={"message": f"Accommodation with id {accommodation_id} not found"})
 
+
 @router.post("", response_model=Accommodation)
 async def create(accommodation_dto: AccommodationDTO):
     return accommodation_service.save(accommodation_dto)
+
 
 @router.put("", response_model=Accommodation)
 async def update(accommodation_dto: AccommodationDTO):
@@ -29,6 +33,7 @@ async def update(accommodation_dto: AccommodationDTO):
     if accommodation is not None:
         return accommodation_service.update(accommodation_dto)
     return JSONResponse(status_code=404, content={"message": f"Accommodation with id {accommodation_dto.id} not found"})
+
 
 @router.delete("/accommodation_id")
 async def delete(accommodation_id: int):
