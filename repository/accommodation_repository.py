@@ -54,7 +54,8 @@ def find_by_id(accommodation_id: int):
     for accommodation in accommodations:
         if accommodation.id == accommodation_id:
             return accommodation
-    return None
+    raise ValueError(f"Accommodation with id {accommodation_id} not found")
+    # return None
 
 
 def save(accommodation: Accommodation):

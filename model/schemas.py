@@ -27,3 +27,11 @@ class Accommodation(BaseModel):
     host: Host
     numRooms: int
     is_available: bool
+
+class AccommodationDTO(BaseModel):
+    id: int
+    name: str
+    category: str
+    host_id: int
+    numRooms: int
+    is_available: bool

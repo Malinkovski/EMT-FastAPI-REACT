@@ -6,6 +6,7 @@ countries = [
     Country(id=3, name="USA", continent="North America")
 ]
 
+
 def list_all():
     return countries
 
@@ -14,4 +15,5 @@ def find_by_id(country_id: int):
     for country in countries:
         if country.id == country_id:
             return country
-    return None
+    raise ValueError(f"Country with id {country_id} not found")
+    # return None
