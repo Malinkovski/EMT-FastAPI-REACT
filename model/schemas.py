@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from enum import Enum
 
 
-class Country(BaseModel):
+class CountryShema(BaseModel):
     id: int
     name: str
     continent: str
@@ -13,17 +13,17 @@ class Country(BaseModel):
         from_attributes = True
 
 
-class Host(BaseModel):
+class HostShema(BaseModel):
     id: int
     name: str
     surname: str
-    country: Country
+    country: CountryShema
 
     class Config:
         from_attributes = True
 
 
-class Category(Enum):
+class CategoryShema(Enum):
     ROOM = "Room"
     HOUSE = "House"
     FLAT = "Flat"
@@ -35,11 +35,11 @@ class Category(Enum):
         from_attributes = True
 
 
-class Accommodation(BaseModel):
+class AccommodationShema(BaseModel):
     id: int
     name: str
-    category: Category
-    host: Host
+    category: CategoryShema
+    host: HostShema
     numRooms: int
     is_available: bool
 
@@ -47,16 +47,16 @@ class Accommodation(BaseModel):
         from_attributes = True
 
 
-class AccommodationDTO(BaseModel):
-    id: int
-    name: str
-    category: str
-    host_id: int
-    numRooms: int
-    is_available: bool
-
-    class Config:
-        from_attributes = True
+# class AccommodationDTO(BaseModel):
+#     id: int
+#     name: str
+#     category: str
+#     host_id: int
+#     numRooms: int
+#     is_available: bool
+#
+#     class Config:
+#         from_attributes = True
 
 
 class AccommodationCreateDTO(BaseModel):
