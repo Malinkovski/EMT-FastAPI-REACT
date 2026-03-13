@@ -1,16 +1,27 @@
+from typing import Optional
+
 from pydantic import BaseModel
 from enum import Enum
+
 
 class Country(BaseModel):
     id: int
     name: str
     continent: str
 
+    class Config:
+        from_attributes = True
+
+
 class Host(BaseModel):
     id: int
     name: str
     surname: str
     country: Country
+
+    class Config:
+        from_attributes = True
+
 
 class Category(Enum):
     ROOM = "Room"
@@ -20,6 +31,10 @@ class Category(Enum):
     HOTEL = "Hotel"
     MOTEL = "Motel"
 
+    class Config:
+        from_attributes = True
+
+
 class Accommodation(BaseModel):
     id: int
     name: str
@@ -28,6 +43,10 @@ class Accommodation(BaseModel):
     numRooms: int
     is_available: bool
 
+    class Config:
+        from_attributes = True
+
+
 class AccommodationDTO(BaseModel):
     id: int
     name: str
@@ -35,3 +54,22 @@ class AccommodationDTO(BaseModel):
     host_id: int
     numRooms: int
     is_available: bool
+
+    class Config:
+        from_attributes = True
+
+
+class AccommodationCreateDTO(BaseModel):
+    name: str
+    category: str
+    host_id: int
+    numRooms: int
+    is_available: bool
+
+
+class AccommodationUpdateDTO(BaseModel):
+    name: Optional[str] = None
+    category: Optional[str] = None
+    host_id: Optional[int] = None
+    numRooms: Optional[int] = None
+    is_available: Optional[bool] = None
