@@ -9,8 +9,8 @@ __pycache__/
 *.pyd
 
 # IDE settings
-.idea/
-.vscode/
+.idea
+.vscode
 
 # OS-specific files
 .DS_Store
