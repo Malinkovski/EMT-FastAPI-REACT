@@ -61,7 +61,7 @@ class AccommodationShema(BaseModel):
 
 class AccommodationCreateDTO(BaseModel):
     name: str
-    category: str
+    category: CategoryShema
     host_id: int
     numRooms: int
     is_available: bool
@@ -69,7 +69,7 @@ class AccommodationCreateDTO(BaseModel):
 
 class AccommodationUpdateDTO(BaseModel):
     name: Optional[str] = None
-    category: Optional[str] = None
+    category: Optional[CategoryShema] = None
     host_id: Optional[int] = None
     numRooms: Optional[int] = None
     is_available: Optional[bool] = None

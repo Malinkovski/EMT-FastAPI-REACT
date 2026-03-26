@@ -1,0 +1,23 @@
+POST:
+{
+  "name": "Beach Apartment",
+  "category": "Apartment",
+  "host_id": 1,
+  "numRooms": 3,
+  "is_available": true
+}
+
+GET:
+4
+
+PUT:
+{
+  "name": "Beach Apartment",
+  "category": "Apartment",
+  "host_id": 1,
+  "numRooms": 3,
+  "is_available": false
+}
+
+DELETE:
+4
