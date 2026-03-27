@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel
 from enum import Enum
@@ -78,6 +78,27 @@ class AccommodationUpdateDTO(BaseModel):
 class UserSchema(BaseModel):
     username: str
     email: str
+
+    class Config:
+        from_attributes = True
+
+
+class ReservationItemSchema(BaseModel):
+    accommodation: AccommodationShema
+    num_nights: int
+
+    class Config:
+        from_attributes = True
+
+
+class ReservationItemDTO(BaseModel):
+    accommodation_id: int
+    num_nights: int
+
+
+class ReservationListSchema(BaseModel):
+    user: UserSchema
+    items: List[ReservationItemSchema] = []
 
     class Config:
         from_attributes = True
