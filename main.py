@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from database.seed import seed
-from web import accommodation_router
+from web import accommodation_router, reservation_router
 
 from contextlib import asynccontextmanager
 
@@ -22,4 +22,5 @@ seed()
 app = FastAPI()
 
 app.include_router(accommodation_router.router)
+app.include_router(reservation_router.router)
 

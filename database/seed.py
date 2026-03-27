@@ -1,5 +1,5 @@
 from database.database import SessionLocal, engine
-from model.models import Base, Country, Host, Accommodation
+from model.models import Base, Country, Host, Accommodation, User, ReservationList
 from model.schemas import CategoryShema
 
 
@@ -9,7 +9,7 @@ def seed():
 
     try:
         # no dupes
-        if db.query(Country).count() > 0:
+        if db.query(Country).count() > 0 or db.query(User).count() > 0:
             print("Database already seeded. Skipping.")
             return
 
@@ -19,7 +19,6 @@ def seed():
             Country(name="Japan", continent="Asia"),
             Country(name="United States", continent="North America")
         ]
-
         db.add_all(countries)
         db.flush()
 
@@ -29,7 +28,6 @@ def seed():
             Host(name="Kenji", surname="Tanaka", country_id=countries[1].id),
             Host(name="John", surname="Smith", country_id=countries[2].id)
         ]
-
         db.add_all(hosts)
         db.flush()
 
@@ -57,14 +55,33 @@ def seed():
                 is_available=False
             )
         ]
-
         db.add_all(accommodations)
-        db.commit()
+        db.flush()
 
+        # users
+        users = [
+            User(username="Ivan", email="Ivan@example.com", password="password1"),
+            User(username="Ana", email="ana@example.com", password="password2")
+        ]
+        db.add_all(users)
+        db.flush()
+
+        # reservation lists
+        lists = [
+            ReservationList(user_id=users[0].id),
+            ReservationList(user_id=users[1].id)
+        ]
+        db.add_all(lists)
+
+        db.commit()
         print("Database seeded successfully.")
 
-    except Exception:
+    except Exception as e:
         db.rollback()
-        print("Seeding failed.", Exception)
+        print("Seeding failed.", e)
     finally:
         db.close()
+
+
+if __name__ == "__main__":
+    seed()

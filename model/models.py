@@ -57,7 +57,7 @@ class ReservationList(Base):
     __tablename__ = "reservation_lists"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey="users.id")
+    user_id = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("User", back_populates="reservation_lists")
     items = relationship("ReservationItem", back_populates="reservation_list")
@@ -67,8 +67,8 @@ class ReservationItem(Base):
 
     id = Column(Integer, primary_key=True)
     num_nights = Column(Integer)
-    reservation_list_id = Column(Integer, ForeignKey="reservation_lists.id")
-    accommodation_id = Column(Integer, ForeignKey="accommodations.id")
+    reservation_list_id = Column(Integer, ForeignKey("reservation_lists.id"))
+    accommodation_id = Column(Integer, ForeignKey("accommodations.id"))
 
     reservation_list = relationship("ReservationList", back_populates="items")
     accommodation = relationship("Accommodation", back_populates="reservation_items")
