@@ -73,3 +73,11 @@ class AccommodationUpdateDTO(BaseModel):
     host_id: Optional[int] = None
     numRooms: Optional[int] = None
     is_available: Optional[bool] = None
+
+
+class UserSchema(BaseModel):
+    username: str
+    email: str
+
+    class Config:
+        from_attributes = True
