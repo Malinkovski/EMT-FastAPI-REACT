@@ -21,3 +21,21 @@ PUT:
 
 DELETE:
 4
+
+
+RESERVATIONS:
+POST: 
+1
+
+{
+  "accommodation_id": 1,
+  "num_nights": 3
+}
+DELETE:
+1
+1
+
+CONFIRM: CREATE > 1
+
+POST:
+1
