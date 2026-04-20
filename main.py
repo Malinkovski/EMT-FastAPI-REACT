@@ -21,6 +21,14 @@ seed()
 # app = FastAPI(lifespan=lifespan)
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(accommodation_router.router)
 app.include_router(reservation_router.router)
 
