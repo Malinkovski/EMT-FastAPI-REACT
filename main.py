@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from database.database import engine
 from database.seed import seed
 from model.models import Base
-from web import accommodation_router, reservation_router
+from web import accommodation_router, reservation_router, host_router, country_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -27,8 +27,8 @@ app.add_middleware(
 
 app.include_router(accommodation_router.router)
 app.include_router(reservation_router.router)
-
-
+app.include_router(country_router.router)
+app.include_router(host_router.router)
 # Test routes (optional)
 @app.get("/")
 async def root():
