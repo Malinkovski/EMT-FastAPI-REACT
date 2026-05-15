@@ -47,18 +47,6 @@ class AccommodationShema(BaseModel):
         from_attributes = True
 
 
-# class AccommodationDTO(BaseModel):
-#     id: int
-#     name: str
-#     category: str
-#     host_id: int
-#     numRooms: int
-#     is_available: bool
-#
-#     class Config:
-#         from_attributes = True
-
-
 class AccommodationCreateDTO(BaseModel):
     name: str
     category: CategoryShema

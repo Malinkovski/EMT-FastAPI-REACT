@@ -1,14 +1,3 @@
-# Креирајте repository/reservation_repository.py
-# Имплементирајте ги следните функции (сите примаат db: Session како прв аргумент):
-#
-# get_list_by_user(db, user_id) - ја враќа листата на резервации на корисникот
-# create_list(db, user_id) - создава нова листа на резервации за корисникот
-# add_item(db, list_id, item_data) - додава ново ReservationItem во листата
-# remove_item(db, list_id, item_id) - ја брише ставката само ако припаѓа на таа листа
-# clear_list(db, list_id) - ги брише сите ставки од листата
-# get_items(db, list_id) - ги враќа сите ставки
-# confirm_reservations(db, list_id) - за секоја ставка проверете дали сместувањето е достапно (is_available); ако не е фрлете ValueError; ако е означете го сместувањето како недостапно (is_available = False) и испразнете ја листата; целата операција мора да биде во еден db.commit()
-# Напомена: За confirm_reservations да работи, моделот Accommodation треба да има поле is_available: bool. Додајте го ако го немате.
 from sqlalchemy.orm import Session
 
 from model.models import ReservationList, ReservationItem, Accommodation
