@@ -98,6 +98,7 @@ class ReservationItemDTO(BaseModel):
 
 
 class ReservationListSchema(BaseModel):
+    id: int
     user: UserSchema
     items: List[ReservationItemSchema] = []
 
