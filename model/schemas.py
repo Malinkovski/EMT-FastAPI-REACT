@@ -84,6 +84,7 @@ class UserSchema(BaseModel):
 
 
 class ReservationItemSchema(BaseModel):
+    id: int
     accommodation: AccommodationShema
     num_nights: int
 

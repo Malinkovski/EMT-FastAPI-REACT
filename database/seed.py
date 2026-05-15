@@ -32,6 +32,7 @@ def seed():
         db.flush()
 
         # accommodations
+        # accommodations
         accommodations = [
             Accommodation(
                 name="Apartments Top",
@@ -53,6 +54,55 @@ def seed():
                 host_id=hosts[2].id,
                 numRooms=5,
                 is_available=False
+            ),
+            Accommodation(
+                name="Luxury Beach Hotel",
+                category=CategoryShema.HOTEL,
+                host_id=hosts[0].id,
+                numRooms=12,
+                is_available=True
+            ),
+            Accommodation(
+                name="Skyline Penthouse",
+                category=CategoryShema.FLAT,
+                host_id=hosts[1].id,
+                numRooms=4,
+                is_available=True
+            ),
+            Accommodation(
+                name="Forest Cabin Retreat",
+                category=CategoryShema.HOUSE,
+                host_id=hosts[2].id,
+                numRooms=2,
+                is_available=True
+            ),
+            Accommodation(
+                name="City Budget Motel",
+                category=CategoryShema.MOTEL,
+                host_id=hosts[0].id,
+                numRooms=8,
+                is_available=False
+            ),
+            Accommodation(
+                name="Modern Apartment Loft",
+                category=CategoryShema.APARTMENT,
+                host_id=hosts[1].id,
+                numRooms=2,
+                is_available=True
+            ),
+            Accommodation(
+                name="Traditional Kyoto Stay",
+                category=CategoryShema.ROOM,
+                host_id=hosts[1].id,
+                numRooms=1,
+                is_available=True
+            ),
+            Accommodation(
+                name="Grand Palace Hotel",
+                category=CategoryShema.HOTEL,
+                host_id=hosts[2].id,
+                numRooms=20,
+                is_available=True
             )
         ]
         db.add_all(accommodations)
